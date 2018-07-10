@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.pm.model" >
+
+	<class name="TxnInfo" table="TXN_INFO">
+		<id name="id" column="ID" type="java.lang.Long">
+            <generator class="native" />
+        </id>	    
+	    
+	    <property name="txnId" column="TXN_ID" type="long" />
+	    <property name="txnAmount" column="TXN_AMOUNT" type="double" />
+	    <property name="feeAmount" column="FEE_AMOUNT" type="double" />
+	    <property name="commissionAmount" column="COMMISSION_AMOUNT" type="double" />
+	    <property name="totalAmount" column="TOTAL_AMOUNT" type="double" />
+	    <property name="currencyId" column="CURRENCY_ID" type="long" />
+	    <property name="txnStatus" column="TXN_STATUS" type="int" />
+	    <property name="txnStartDate" column="TXN_START_DATE" type="java.util.Date" />
+	    <property name="txnEndDate" column="TXN_END_DATE" type="java.util.Date" />
+	    <property name="orderId" column="ORDER_ID" length="50" type="string" />
+	    <property name="orderDetails" column="ORDER_DETAILS" length="2000" type="string" />
+	    <property name="cardCategory" column="CARD_CATEGORY" length="50" type="string" />
+	    <property name="cardType" column="CARD_TYPE" length="20" type="string" />
+	    <property name="cardLastNums" column="CARD_LAST_NUMS" length="10" type="string" />
+	    <property name="cardIssuer" column="CARD_ISSUER" length="50" type="string" />
+	    <property name="cardBin" column="CARD_BIN" length="6" type="string" />
+	    <property name="cardNumber" column="CARD_NUMBER" length="30" type="string" />
+	    <property name="cardExpiry" column="CARD_EXPIRY" length="10" type="string" />
+	    <property name="bank" column="BANK" length="40" type="string" />
+	    <property name="bankIfsc" column="BANK_IFSC" length="20" type="string" />
+	    <property name="bankAccount" column="BANK_ACCOUNT" length="30" type="string" />
+	    <property name="walletAccount" column="WALLET_ACCOUNT" length="30" type="string" />
+	    <property name="issuerCountry" column="ISSUER_COUNTRY" length="40" type="string" />
+	    <property name="settlementId" column="SETTLEMENT_ID" length="20" type="string" />
+	    <property name="settledAmount" column="SETTLED_AMOUNT" type="double" />
+	    <property name="settledOn" column="SETTLED_ON" type="java.util.Date" />
+	    <property name="settlementStatus" column="SETTLEMENT_STATUS" type="int" />
+	    <property name="storeId" column="STORE_ID" length="50" type="string" />
+	    <property name="website" column="WEBSITE" length="100" type="string" />
+	    <property name="corporate" column="CORPORATE" length="30" type="string" />
+	    <property name="responseCode" column="RESPONSE_CODE" length="20" type="string" />
+	    <property name="paymentTypeId" column="PAYMENT_TYPE_ID" type="int" />
+	    <property name="channelId" column="CHANNEL_ID" type="long" />
+	    
+	</class>
+
+	<class name="RuleInfo" table="RULE_INFO">
+		<id name="id" column="ID" type="java.lang.Long">
+            <generator class="native" />
+        </id>	    
+	    
+	    <property name="name" column="NAME" unique="true" not-null="true" length="50" type="string" />
+	    <property name="description" column="DESCRIPTION" length="400" type="string" />
+	    <property name="params" column="PARAMS" not-null="true" length="400" type="string" />
+	    <property name="state" column="STATE" not-null="true" type="boolean" />
+		<property name="creationDate" column="CREATION_DATE" not-null="true" type="java.util.Date" />
+		<property name="updatedDate" column="UPDATED_DATE" not-null="true" type="java.util.Date" />
+		
+	</class>
+	    
+</hibernate-mapping>
